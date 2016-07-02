@@ -1,0 +1,9 @@
+---
+classes:
+  - packer::updates
+  - packer::clock
+
+puppetmaster: 'puppet'
+
+hello_worlds:
+  - "hello from Packer's hieradata/common.yaml"
