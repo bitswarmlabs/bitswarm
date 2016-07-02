@@ -1,0 +1,19 @@
+= bitswarm - DESCRIBE YOUR GEM
+
+Author::  Reuben Avery <ravery@bitswarm.io>
+Copyright:: Copyright (c) 2016 Bitswarm Labs Inc
+
+
+DESCRIBE YOUR GEM HERE
+
+== Links
+
+* {Source on Github}[LINK TO GITHUB]
+* RDoc[LINK TO RDOC.INFO]
+
+== Install
+
+== Examples
+
+== Contributing
+

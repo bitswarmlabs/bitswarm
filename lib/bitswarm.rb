@@ -1,5 +1,5 @@
-require 'bitswarm/version'
+require "bitswarm/version"
 
 module Bitswarm
-  # Oh yeah ...
+  # Your code goes here...
 end

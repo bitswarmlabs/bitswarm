@@ -1,28 +1,45 @@
-# encoding: utf-8
-$:.push File.expand_path("../lib", __FILE__)
-require "bitswarm/version"
+# coding: utf-8
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'bitswarm/version'
 
-Gem::Specification.new do |s|
-  s.name        = "bitswarm"
-  s.version     = Bitswarm::VERSION
-  s.author      = "Reuben Avery"
-  s.email       = ["ravery@bitswarm.io"]
-  s.homepage    = "https://github.com/bitswarmlabs/bitswarm"
-  s.license     = "MIT"
-  s.summary       = 'A command line tool to create Bitswarm.io base images.'
-  s.description   = <<-EOF
+Gem::Specification.new do |spec|
+  spec.name          = "bitswarm"
+  spec.license       = "MIT"
+  spec.version       = Bitswarm::VERSION
+  spec.authors       = ["Reuben Avery"]
+  spec.email         = ["ravery@bitswarm.io"]
+  spec.homepage      = "https://github.com/bitswarmlabs/bitswarm"
+
+  spec.summary       = "A command line tool to create Bitswarm.io base images."
+  spec.description   =  <<-EOF
     bitswarm is a command line tool designed to create base images and infrastructure in order to deploy and develop
     the Bitswarm.io ecosystem.
   EOF
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- spec/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
 
-  s.required_ruby_version = '>= 1.9.2'
+  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
+  # to allow pushing to a single host or delete this section to allow pushing to any host.
+  if spec.respond_to?(:metadata)
+    spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
+  else
+    raise "RubyGems 2.0 or newer is required to protect against " \
+      "public gem pushes."
+  end
 
-  s.add_development_dependency 'rake', '~> 10.4'
-  s.add_development_dependency 'rspec', '~> 3.3'
-  s.add_development_dependency 'cucumber', '~> 2.1'
-  s.add_development_dependency 'ra10ke'
+  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
+    f.match(%r{^(test|spec|features)/})
+  end
+  spec.bindir        = "exe"
+  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.require_paths = ["lib"]
+
+  spec.add_dependency("methadone", "~> 1.9.2")
+
+  spec.add_development_dependency("bundler", "~> 1.12.5")
+  spec.add_development_dependency("rake", "~> 10.0")
+  spec.add_development_dependency('rdoc')
+  spec.add_development_dependency('aruba')
+  spec.add_development_dependency('ra10ke')
+  spec.add_development_dependency('test-unit')
 end
+

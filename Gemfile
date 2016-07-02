@@ -1,13 +1,4 @@
 source 'https://rubygems.org'
 
+# Specify your gem's dependencies in bitswarm.gemspec
 gemspec
-
-group :development do
-  gem "guard"
-  gem "guard-rspec"
-
-  if RUBY_PLATFORM.downcase.include?("darwin")
-    gem 'rb-fsevent'
-    gem 'libnotify'
-  end
-end
